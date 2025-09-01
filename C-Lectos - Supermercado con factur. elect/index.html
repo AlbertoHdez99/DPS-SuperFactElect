@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C-Lectos en linea — Carrito con Facturación</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>🛒 C-Lectos</h1>
+    <p class="subtitle">Con facturación en linea</p>
+  </header>
+
+  <main class="container grid">
+    <!-- Productos -->
+    <section class="card" aria-labelledby="productos-title">
+      <h2 id="productos-title">Productos disponibles</h2>
+      <div id="product-list" class="products-grid" aria-live="polite"></div>
+    </section>
+
+    <!-- Carrito -->
+    <section class="card" aria-labelledby="carrito-title">
+      <h2 id="carrito-title">Carrito</h2>
+
+      <div class="table-wrap">
+        <table class="table" aria-describedby="carrito-title">
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Cant.</th>
+              <th>Precio</th>
+              <th>Total</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cart-body"></tbody>
+        </table>
+      </div>
+
+      <div class="totals">
+        <div><span>Subtotal:</span> <strong id="subtotal">$0.00</strong></div>
+        <div><span>Impuesto (<span id="tax-rate-label"></span>):</span> <strong id="tax">$0.00</strong></div>
+        <div class="grand"><span>Total:</span> <strong id="grand-total">$0.00</strong></div>
+      </div>
+
+      <div class="actions">
+        <button id="btn-clear" class="btn secondary" aria-label="Vaciar carrito">Vaciar carrito</button>
+        <button id="btn-checkout" class="btn primary" aria-label="Confirmar compra">Confirmar compra</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Factura -->
+  <section id="invoice-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="invoice-title">
+    <div class="modal-card">
+      <header class="modal-header">
+        <h3 id="invoice-title">Factura</h3>
+        <button id="btn-close-invoice" class="icon-btn" aria-label="Cerrar factura">✖</button>
+      </header>
+
+      <div id="invoice-body" class="invoice"></div>
+
+      <footer class="modal-footer">
+        <button id="btn-confirm" class="btn primary">Confirmar y actualizar inventario</button>
+      </footer>
+    </div>
+  </section>
+
+  <footer class="container footer">
+    <small>UDB • DPS</small>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
